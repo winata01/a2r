@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otomasi Bisnis AI - Solusi Cerdas untuk Bisnis Indonesia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Exo', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #e94560 100%);
+        }
+        
+        .soft-glow {
+            box-shadow: 0 4px 20px rgba(233, 69, 96, 0.2), 0 2px 10px rgba(83, 52, 131, 0.1);
+        }
+        
+        .accent-border {
+            border: 2px solid rgba(233, 69, 96, 0.3);
+            background: linear-gradient(45deg, rgba(233, 69, 96, 0.1), rgba(83, 52, 131, 0.1));
+        }
+        
+        .holographic-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(233, 69, 96, 0.05) 50%, rgba(83, 52, 131, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .ai-pattern {
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(233, 69, 96, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(83, 52, 131, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(15, 52, 96, 0.1) 0%, transparent 50%);
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse-glow {
+            from { box-shadow: 0 0 10px rgba(233, 69, 96, 0.3); }
+            to { box-shadow: 0 0 20px rgba(233, 69, 96, 0.5), 0 0 30px rgba(83, 52, 131, 0.2); }
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="gradient-bg text-white overflow-x-hidden">
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center ai-pattern">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 left-10 w-2 h-2 bg-red-400 rounded-full pulse-glow"></div>
+            <div class="absolute top-40 right-20 w-1 h-1 bg-purple-400 rounded-full pulse-glow" style="animation-delay: 0.5s;"></div>
+            <div class="absolute bottom-40 left-1/4 w-1.5 h-1.5 bg-blue-400 rounded-full pulse-glow" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/3 right-1/3 w-1 h-1 bg-pink-300 rounded-full pulse-glow" style="animation-delay: 1.5s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="floating-animation">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-500 bg-clip-text text-transparent">
+                    Otomasi Bisnis Anda dengan AI
+                </h1>
+            </div>
+            
+            <p class="text-xl md:text-2xl mb-12 text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                Hemat waktu, kurangi pekerjaan manual, dan tingkatkan produktivitas tim Anda dengan solusi otomasi cerdas yang disesuaikan untuk bisnis Anda.
+            </p>
+            
+            <a href="https://wa.me/6281234567890" target="_blank" class="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-4 px-12 rounded-full text-xl soft-glow hover:scale-105 transition-all duration-300 accent-border">
+                Hubungi Kami Sekarang
+            </a>
+            
+            <!-- Floating Tech Elements -->
+            <div class="absolute top-20 left-20 floating-animation" style="animation-delay: 0.5s;">
+                <svg class="w-16 h-16 text-purple-400 opacity-30" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                </svg>
+            </div>
+            
+            <div class="absolute bottom-32 right-16 floating-animation" style="animation-delay: 1s;">
+                <svg class="w-12 h-12 text-pink-400 opacity-30" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent scroll-reveal">
+                Studi Kasus Nyata
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Case Study 1 -->
+                <div class="holographic-card rounded-2xl p-8 hover:scale-105 transition-all duration-300 scroll-reveal">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-6 soft-glow">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-purple-300">Otomatisasi Laporan Media Sosial</h3>
+                    <p class="text-gray-300">Dari proses manual 3 jam menjadi hanya 2 menit. Data tersaji real-time langsung ke dashboard Anda.</p>
+                </div>
+                
+                <!-- Case Study 2 -->
+                <div class="holographic-card rounded-2xl p-8 hover:scale-105 transition-all duration-300 scroll-reveal" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-6 soft-glow">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8zM12 19c-3.87 0-7-3.13-7-7 0-.84.16-1.65.43-2.4l2.71 1.93L12 10.5l3.86 1.03 2.71-1.93c.27.75.43 1.56.43 2.4 0 3.87-3.13 7-7 7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-purple-300">Routing Lead dengan AI</h3>
+                    <p class="text-gray-300">Setiap prospek otomatis dikirim ke tim sales yang tepat, meningkatkan peluang closing hingga 30%.</p>
+                </div>
+                
+                <!-- Case Study 3 -->
+                <div class="holographic-card rounded-2xl p-8 hover:scale-105 transition-all duration-300 scroll-reveal" style="animation-delay: 0.4s;">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-6 soft-glow">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-5 2h2v2h-2V4zm1 16c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-purple-300">Proses Invoice Tanpa Sentuhan</h3>
+                    <p class="text-gray-300">Dari upload hingga pencatatan di sistem akuntansi—100% otomatis, tanpa kesalahan input.</p>
+                </div>
+                
+                <!-- Case Study 4 -->
+                <div class="holographic-card rounded-2xl p-8 hover:scale-105 transition-all duration-300 scroll-reveal" style="animation-delay: 0.6s;">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-6 soft-glow">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-purple-300">Notifikasi Real-Time untuk KPI Penting</h3>
+                    <p class="text-gray-300">AI memantau data dan memberi alert sebelum masalah menjadi besar.</p>
+                </div>
+                
+                <!-- Case Study 5 -->
+                <div class="holographic-card rounded-2xl p-8 hover:scale-105 transition-all duration-300 scroll-reveal md:col-span-2 lg:col-span-1" style="animation-delay: 0.8s;">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-6 soft-glow">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-purple-300">Integrasi Multi-Platform Tanpa Koding</h3>
+                    <p class="text-gray-300">Hubungkan CRM, email, spreadsheet, dan WhatsApp hanya dalam hitungan jam.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Benefits Section -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent scroll-reveal">
+                Keunggulan Utama
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Benefit 1 -->
+                <div class="text-center scroll-reveal">
+                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 accent-border">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-purple-300">Hemat Waktu</h3>
+                    <p class="text-gray-300">Otomasi tugas berulang sehingga tim fokus pada hal strategis.</p>
+                </div>
+                
+                <!-- Benefit 2 -->
+                <div class="text-center scroll-reveal" style="animation-delay: 0.2s;">
+                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 accent-border">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-purple-300">Biaya Efisien</h3>
+                    <p class="text-gray-300">Tanpa lisensi mahal dan biaya pengembangan besar.</p>
+                </div>
+                
+                <!-- Benefit 3 -->
+                <div class="text-center scroll-reveal" style="animation-delay: 0.4s;">
+                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 accent-border">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-purple-300">Fleksibel</h3>
+                    <p class="text-gray-300">Bisa diintegrasikan dengan ratusan aplikasi populer.</p>
+                </div>
+                
+                <!-- Benefit 4 -->
+                <div class="text-center scroll-reveal" style="animation-delay: 0.6s;">
+                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 accent-border">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 11H7v9h2v-9zm4 0h-2v9h2v-9zm4 0h-2v9h2v-9zm2.5-9H19V1h-2v1H7V1H5v1H4.5C3.11 2 2 3.11 2 4.5v15C2 20.89 3.11 22 4.5 22h15c1.39 0 2.5-1.11 2.5-2.5v-15C22 3.11 20.89 2 19.5 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-purple-300">Cerdas</h3>
+                    <p class="text-gray-300">AI memprediksi dan menyarankan tindakan terbaik.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent scroll-reveal">
+                Testimoni Klien
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="holographic-card rounded-2xl p-8 scroll-reveal">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center soft-glow mr-4">
+                            <span class="text-white font-bold text-xl">A</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-purple-300">Andi</h4>
+                            <p class="text-gray-400 text-sm">Founder Startup X</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">"Sejak menggunakan otomasi dari tim ini, proses follow-up customer kami jadi 5x lebih cepat."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="holographic-card rounded-2xl p-8 scroll-reveal" style="animation-delay: 0.3s;">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center soft-glow mr-4">
+                            <span class="text-white font-bold text-xl">R</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-purple-300">Rina</h4>
+                            <p class="text-gray-400 text-sm">Operations Manager</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">"Integrasi antar sistem yang dulunya makan waktu berminggu-minggu, sekarang selesai dalam sehari."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 text-center relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent scroll-reveal">
+                Siap Mengotomasi Bisnis Anda?
+            </h2>
+            <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto scroll-reveal">
+                Konsultasi gratis untuk mengetahui bagaimana AI dan otomasi dapat mengubah cara kerja bisnis Anda.
+            </p>
+            <a href="https://wa.me/6281234567890" target="_blank" class="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-4 px-12 rounded-full text-xl soft-glow hover:scale-105 transition-all duration-300 accent-border scroll-reveal">
+                Mulai Konsultasi Gratis
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add parallax effect to floating elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelectorAll('.floating-animation');
+            const speed = 0.5;
+
+            parallax.forEach(element => {
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96ff4440f09bd572',t:'MTc1NTMyOTg0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
