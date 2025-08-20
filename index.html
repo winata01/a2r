@@ -2013,20 +2013,46 @@
             });
         });
 
+        // Cross-browser compatible matches function
+        function elementMatches(element, selector) {
+            // Check if element is valid
+            if (!element || !selector) {
+                return false;
+            }
+            
+            if (element.matches) {
+                return element.matches(selector);
+            } else if (element.msMatchesSelector) {
+                return element.msMatchesSelector(selector);
+            } else if (element.webkitMatchesSelector) {
+                return element.webkitMatchesSelector(selector);
+            } else {
+                // Fallback for very old browsers
+                var doc = element.document || element.ownerDocument || document;
+                if (!doc || !doc.querySelectorAll) {
+                    return false;
+                }
+                var matches = doc.querySelectorAll(selector);
+                var i = matches.length;
+                while (--i >= 0 && matches.item(i) !== element) {}
+                return i > -1;
+            }
+        }
+
         // Optimized hover effects using event delegation
         document.addEventListener('mouseenter', function (e) {
-            if (e.target.matches('.feature-card')) {
+            if (elementMatches(e.target, '.feature-card')) {
                 e.target.style.transform = 'translateY(-10px) scale(1.02)';
-            } else if (e.target.matches('.case-study-card, .benefit-card, .new-testimonial-card')) {
+            } else if (elementMatches(e.target, '.case-study-card') || elementMatches(e.target, '.benefit-card') || elementMatches(e.target, '.new-testimonial-card')) {
                 e.target.style.transform = 'translateY(-15px) scale(1.03)';
                 e.target.style.boxShadow = '0 25px 50px rgba(102, 126, 234, 0.25)';
             }
         }, true);
 
         document.addEventListener('mouseleave', function (e) {
-            if (e.target.matches('.feature-card')) {
+            if (elementMatches(e.target, '.feature-card')) {
                 e.target.style.transform = 'translateY(0) scale(1)';
-            } else if (e.target.matches('.case-study-card, .benefit-card, .new-testimonial-card')) {
+            } else if (elementMatches(e.target, '.case-study-card') || elementMatches(e.target, '.benefit-card') || elementMatches(e.target, '.new-testimonial-card')) {
                 e.target.style.transform = 'translateY(0) scale(1)';
                 e.target.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
             }
@@ -2116,7 +2142,7 @@
 
         // Optimized magnetic effect using event delegation
         document.addEventListener('mousemove', function (e) {
-            if (e.target.matches('.whatsapp-cta-button')) {
+            if (elementMatches(e.target, '.whatsapp-cta-button')) {
                 const rect = e.target.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
                 const y = e.clientY - rect.top - rect.height / 2;
@@ -2125,7 +2151,7 @@
         });
 
         document.addEventListener('mouseleave', function (e) {
-            if (e.target.matches('.whatsapp-cta-button')) {
+            if (elementMatches(e.target, '.whatsapp-cta-button')) {
                 e.target.style.transform = 'translate(0, 0) scale(1)';
             }
         });
