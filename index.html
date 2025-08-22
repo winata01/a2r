@@ -546,48 +546,26 @@
             counterObserver.observe(benefitsSection);
         }
 
-
-        const moveElevenlabs = (containerSelector = "#hero-buttons") => {
+        function moveElevenlabs(containerSelector = "#hero-buttons") {
             const widget = document.querySelector("elevenlabs-convai");
+            const target = document.querySelector(containerSelector);
+            if (!widget || !target) return console.warn("❌ Widget or target container not found");
 
-            if (!widget?.shadowRoot) {
-                return setTimeout(moveAndAlignWidget, 100);
-            }
+            // Step 1: Move the widget — this will trigger a re-init
+            target.appendChild(widget);
 
-            // Find the top overlay container inside shadow DOM
-            const rootOverlay = widget.shadowRoot.querySelector(".overlay");
-            const container = document.querySelector(containerSelector);
+            // Step 2: Wait for re-initialization (when overlays are rebuilt)
+            const checkReady = setInterval(() => {
+                const overlays = widget.shadowRoot?.querySelectorAll(".overlay");
+                if (!overlays || overlays.length < 2) return;
 
-            // --- Move Logic ---
-            // Shrink host size
-            Object.assign(widget.style, {
-                position: "static",
-                width: "100%",
-                height: "auto",
-                display: "block"
-            });
+                clearInterval(checkReady);
 
-            // Override shadow root style
-            const hostStyle = widget.shadowRoot.querySelector("style");
-            if (hostStyle) {
-                hostStyle.textContent = hostStyle.textContent.replace(
-                /:host\s*{[^}]*}/,
-                ":host { position: static !important; display: block !important; width: 100% !important; height: auto !important; }"
-                );
-            }
+                // Step 3: Apply layout styling after rebuild
+                const mainOverlay = overlays[0];
+                const footerOverlay = overlays[1];
 
-            // Un-fix overlay
-            rootOverlay?.setAttribute("style", "position:relative; inset:auto;");
-
-            // Move to your container
-            if (container) {
-                container.appendChild(widget);
-                console.log("move 11 labs");
-            }
-
-            // --- Align Logic ---
-            if (rootOverlay) {
-                Object.assign(rootOverlay.style, {
+                Object.assign(mainOverlay.style, {
                 position: "relative",
                 inset: "auto",
                 display: "flex",
@@ -595,19 +573,40 @@
                 justifyContent: "flex-start",
                 alignItems: "flex-start",
                 width: "100%",
-                padding: "0",
+                padding: "0"
                 });
-                console.log("align left 11 labs");
-            }
 
-            const hostDiv = widget.parentElement;
-            if (hostDiv) {
-                hostDiv.style.minHeight = "420px";
-            }
-        };
+                if (footerOverlay) footerOverlay.style.display = "none";
+
+                // Optional: ensure host has correct styling
+                Object.assign(widget.style, {
+                position: "static",
+                display: "block",
+                width: "100%",
+                height: "auto",
+                visibility: "visible"
+                });
+
+                target.style.minHeight = "420px";
+
+                console.log("✅ ElevenLabs widget moved and styled (left-aligned)");
+            }, 100);
+        }
 
         // Call the combined function
+        const ctaobserver = new MutationObserver((mutations, obs) => {
+        const widget = document.querySelector("elevenlabs-convai");
+        if (widget) {
+            obs.disconnect(); // stop observing once found
+            moveElevenlabs();
+        }
+        });
 
+        // Start watching the document
+        ctaobserver.observe(document.body, {
+            childList: true,
+            subtree: true,
+        });
         console.log('A2R Business Automation Landing Page Loaded Successfully! 🚀');
     </script>
 </body>
