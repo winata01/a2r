@@ -584,11 +584,12 @@
 
                 // Optional: ensure host has correct styling
                 Object.assign(widget.style, {
-                position: "static",
-                display: "block",
-                width: "100%",
-                height: "auto",
-                visibility: "visible"
+                    position: "static",
+                    display: "block",
+                    width: "100%",
+                    height: "auto",
+                    zIndex:1,
+                    visibility: "visible"
                 });
 
                 target.style.minHeight = "420px";
