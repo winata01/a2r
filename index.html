@@ -559,6 +559,56 @@
             counterObserver.observe(benefitsSection);
         }
 
+
+        function moveElevenLabsWidgetToDivLeft(containerSelector = "#my-target") {
+            const tryMove = () => {
+                const widget = document.querySelector("elevenlabs-convai");
+                if (!widget) return setTimeout(tryMove, 100);
+
+                // Step 1: Clean up host styles
+                Object.assign(widget.style, {
+                    position: "static",
+                    display: "block",
+                    width: "100%",
+                    height: "auto",
+                    visibility: "visible"
+                });
+
+                // Step 2: Override shadow root styles
+                const style = widget.shadowRoot?.querySelector("style");
+                if (style) {
+                style.textContent = style.textContent.replace(
+                    /:host\s*{[^}]*}/,
+                    ":host { position: static !important; display: block !important; width: 100% !important; height: auto !important; }"
+                );
+                }
+
+                // Step 3: Modify .overlay layout
+                const overlay = widget.shadowRoot?.querySelector(".overlay");
+                if (overlay) {
+                Object.assign(overlay.style, {
+                    position: "relative",
+                    inset: "auto",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "flex-start",   // top alignment
+                    alignItems: "flex-start",       // left alignment
+                    width: "100%",
+                    padding: "0"
+                });
+                }
+
+                // Step 4: Reparent to your target container
+                const target = document.querySelector(containerSelector);
+                if (target) {
+                target.style.minHeight = "420px"; // give space
+                target.appendChild(widget);
+                }
+            };
+
+            tryMove();
+        }        
+        moveElevenLabsWidgetToDivLeft("#hero-buttons");
         console.log('A2R Business Automation Landing Page Loaded Successfully! 🚀');
     </script>
 </body>
