@@ -652,3 +652,11 @@ html {
 elevenlabs-convai {
     visibility: hidden;
 }
+
+elevenlabs-convai::part(overlay) {
+    transition: none !important;
+}
+
+.transition-opacity{
+    transition: none !important;
+}

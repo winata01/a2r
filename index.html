@@ -42,20 +42,7 @@
                     <h1>Otomasi BISNIS Anda dengan AI</h1>
                     <p>Hemat waktu, kurangi pekerjaan manual, dan tingkatkan produktivitas tim Anda dengan solusi
                         otomasi cerdas yang disesuaikan untuk bisnis Anda.</p>
-                    <div class="hero-buttons" id="hero-buttons">
-                        <a href="#final-cta" class="btn-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-                                <path d="M5 3v4" />
-                                <path d="M19 17v4" />
-                                <path d="M3 5h4" />
-                                <path d="M17 19h4" />
-                            </svg>
-                            Mulai Sekarang
-                        </a>
-                    </div>
+                    <div class="hero-buttons" id="hero-buttons"></div>
                 </div>
                 <div class="hero-image fade-in">
                     <img src="hero1.jpg" alt="AI CRM Platform" loading="lazy">
@@ -560,61 +547,66 @@
         }
 
 
-        function moveElevenLabsWidgetToDivLeft(containerSelector = "#my-target") {
-            const tryMove = () => {
-                const widget = document.querySelector("elevenlabs-convai");
-                if (!widget) return setTimeout(tryMove, 100);
+        const moveElevenlabs = (containerSelector = "#hero-buttons") => {
+            const widget = document.querySelector("elevenlabs-convai");
 
-                // Step 1: Clean up host styles
-                Object.assign(widget.style, {
-                    position: "static",
-                    display: "block",
-                    width: "100%",
-                    height: "auto",
-                    visibility: "visible"
+            if (!widget?.shadowRoot) {
+                return setTimeout(moveAndAlignWidget, 100);
+            }
+
+            // Find the top overlay container inside shadow DOM
+            const rootOverlay = widget.shadowRoot.querySelector(".overlay");
+            const container = document.querySelector(containerSelector);
+
+            // --- Move Logic ---
+            // Shrink host size
+            Object.assign(widget.style, {
+                position: "static",
+                width: "100%",
+                height: "auto",
+                display: "block"
+            });
+
+            // Override shadow root style
+            const hostStyle = widget.shadowRoot.querySelector("style");
+            if (hostStyle) {
+                hostStyle.textContent = hostStyle.textContent.replace(
+                /:host\s*{[^}]*}/,
+                ":host { position: static !important; display: block !important; width: 100% !important; height: auto !important; }"
+                );
+            }
+
+            // Un-fix overlay
+            rootOverlay?.setAttribute("style", "position:relative; inset:auto;");
+
+            // Move to your container
+            if (container) {
+                container.appendChild(widget);
+            }
+
+            // --- Align Logic ---
+            if (rootOverlay) {
+                Object.assign(rootOverlay.style, {
+                position: "relative",
+                inset: "auto",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "flex-start",
+                alignItems: "flex-start",
+                width: "100%",
+                padding: "0",
                 });
+            }
 
-                // Step 2: Override shadow root styles
-                const style = widget.shadowRoot?.querySelector("style");
-                if (style) {
-                    style.textContent = style.textContent.replace(
-                        /:host\s*{[^}]*}/,
-                        ":host { position: static !important; display: block !important; width: 100% !important; height: auto !important; }"
-                    );
-                }
+            const hostDiv = widget.parentElement;
+            if (hostDiv) {
+                hostDiv.style.minHeight = "420px";
+            }
+        };
 
-                // Step 3: Modify .overlay layout
-                const overlay = widget.shadowRoot?.querySelector(".overlay");
-                if (overlay) {
-                    Object.assign(overlay.style, {
-                        position: "relative",
-                        inset: "auto",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "flex-start",   // top alignment
-                        alignItems: "flex-start",       // left alignment
-                        width: "100%",
-                        padding: "0"
-                    });
-                }
+        // Call the combined function
+        moveElevenlabs();
 
-                // Step 4: Reparent to your target container
-                const target = document.querySelector(containerSelector);
-                if (target) {
-                    target.style.minHeight = "420px"; // give space
-                    target.appendChild(widget);
-                }
-
-                // Step 5: Hide the second overlay (Powered by ElevenLabs)
-                const allOverlays = widget.shadowRoot?.querySelectorAll(".overlay");
-                if (allOverlays?.length > 1) {
-                    allOverlays[1].style.display = "none";
-                }
-            };
-
-            tryMove();
-        }        
-        moveElevenLabsWidgetToDivLeft("#hero-buttons");
         console.log('A2R Business Automation Landing Page Loaded Successfully! 🚀');
     </script>
 </body>
