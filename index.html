@@ -566,17 +566,20 @@
                 const footerOverlay = overlays[1];
 
                 Object.assign(mainOverlay.style, {
-                position: "relative",
-                inset: "auto",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                width: "100%",
-                padding: "0"
+                    position: "relative",
+                    inset: "auto",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "flex-start",
+                    alignItems: "flex-start",
+                    width: "100%",
+                    padding: "0"
                 });
 
-                if (footerOverlay) footerOverlay.style.display = "none";
+                if (footerOverlay) {
+                    footerOverlay.style.setProperty("display", "none", "important");
+                    footerOverlay.innerHTML = ""; // remove contents just in case
+                }
 
                 // Optional: ensure host has correct styling
                 Object.assign(widget.style, {
