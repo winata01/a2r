@@ -111,7 +111,7 @@
 
         /* === HERO SECTION === */
         .hero {
-            background: linear-gradient(135deg, var(--white) 0%, #8c8f9e 80%);
+            background: linear-gradient(135deg, var(--white) 0%, #9ca1a6  75%);
             padding: 120px 0 80px;
             min-height: 100vh;
             display: flex;
