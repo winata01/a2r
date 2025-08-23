@@ -665,4 +665,7 @@ elevenlabs-convai::part(overlay) {
   .case-studies-grid {
     grid-template-columns: repeat(4, 1fr);
   }
+  .main-benefits-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
