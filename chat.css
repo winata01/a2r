@@ -518,3 +518,35 @@
 		font-weight: 500 !important;
 	}
 	.chat-widget-scope .message p{ line-height: 1.5 !important; }
+
+  /* Demo button styling */
+  #anim {
+    width: 200px;
+    height: 60px;
+    background: linear-gradient(45deg, #00a99d, #4a4a4a);
+    color: white;
+    border: 3px solid #1a1a1a;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+#anim:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+#anim:active {
+    transform: translate(0px, 0px);
+    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+}
+
+#anim::before {
+    content: "💬 Open Chat Widget";
+}
