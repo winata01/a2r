@@ -97,7 +97,42 @@
                     </div>
                     <h3>Asisten Booking untuk Klinik Gigi</h3>
                     <p>Pasien bisa menjadwalkan janji temu dokter gigi langsung lewat chat otomatis. Sistem akan menanyakan preferensi waktu, lalu mencocokkan slot kosong di Google Calendar dan mengirim konfirmasi melalui email.</p>
-                    <div class="case-metrics" id="case-3"></div>
+                    <div class="case-metrics" id="case-3">
+                        <div id="anim" onclick="openChatWidget();"></div>
+
+                        <!-- Chat Widget -->
+                        <div id="chat-widget" class="chat-widget-scope">
+                            <!-- Click outside overlay -->
+                            <div id="chat-overlay"></div>
+                            
+                            <!-- Chat Widget Button -->
+                            <button id="chat-widget-button">💬</button>
+                            
+                            <!-- Chat Widget Container -->
+                            <div id="chat-widget-container">
+                                <div id="chat-widget-header">
+                                    <span>drg. Bobby Stevens</span>
+                                    <div class="header-controls">
+                                        <button id="expand-button" title="Expand chat">⛶</button>
+                                        <button onclick="closeChatWidget()" title="Close chat">✖</button>
+                                    </div>
+                                </div>
+                                <div id="chat-widget-body">
+                                    <div class="message bot">
+                                        <strong>👋 Halo, selamat datang di klinik drg. Bobby Stevens. Bisa dibantu?</strong>
+                                        <div class="timestamp" id="initial-timestamp"></div>
+                                    </div>
+                                </div>
+                                <div id="chat-widget-footer">
+                                    <textarea
+                                        id="chat-widget-input"
+                                        placeholder="Type your message here..."
+                                        rows="1"
+                                    ></textarea>
+                                    <button id="chat-widget-send">Send</button>
+                                </div>
+                            </div>
+                        </div>                    </div>
                 </div>
                 <div class="case-study-card fade-in">
                     <div class="case-icon">
