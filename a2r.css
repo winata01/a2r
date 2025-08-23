@@ -660,3 +660,9 @@ elevenlabs-convai::part(overlay) {
 .transition-opacity{
     transition: none !important;
 }
+
+@media (min-width: 1024px) {
+  .case-studies-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
