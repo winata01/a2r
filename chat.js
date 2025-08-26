@@ -351,11 +351,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		expandButton.addEventListener("click", toggleExpandChat);
 	}
 
-	// Click outside to close
-	const overlay = document.getElementById("chat-overlay");
-	if (overlay) {
-		overlay.addEventListener("click", closeChatWidget);
-	}
+	// // Click outside to close
+	// const overlay = document.getElementById("chat-overlay");
+	// if (overlay) {
+	// 	overlay.addEventListener("click", closeChatWidget);
+	// }
 
 	// Send button event listener
 	const sendButton = document.getElementById("chat-widget-send");
