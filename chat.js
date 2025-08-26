@@ -189,7 +189,7 @@ function openChatWidget() {
 	
 	if (container) container.style.display = "flex";
 	if (button) button.style.display = "none";
-	if (overlay) overlay.style.display = "block";
+	if (overlay) overlay.style.display = "hidden";
 	
 	// Focus on input when chat opens
 	setTimeout(() => {
